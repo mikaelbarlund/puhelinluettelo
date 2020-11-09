@@ -1,7 +1,7 @@
-POST http://localhost:3001/api/persons/
+POST https://enigmatic-anchorage-88334.herokuapp.com/api/persons/
 Content-Type: application/json
 
 {
-"name": "Mary Poppendieck",
-"number": "39-23-6423122"
+"name": "Hill Billy",
+"number": "39-23-6423123"
 }
