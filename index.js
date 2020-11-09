@@ -52,9 +52,9 @@ app.delete('/api/persons/:id', (request, response) => {
 
 const generateId = () => {
     let newId = 1
-        while(persons.map(n => n.id).includes(newId)){
-            newId = Math.floor(Math.random()*100)
-        }
+    while (persons.map(n => n.id).includes(newId)) {
+        newId = Math.floor(Math.random() * 100)
+    }
     return newId
 }
 
@@ -63,6 +63,16 @@ app.post('/api/persons', (request, response) => {
     if (!body.name) {
         return response.status(400).json({
             error: 'name missing'
+        })
+    }
+    if (!body.number) {
+        return response.status(400).json({
+            error: 'number missing'
+        })
+    }
+    if ((persons.map(n => n.name).includes(body.name))) {
+        return response.status(400).json({
+            error: 'name must be unique'
         })
     }
     const person = {
